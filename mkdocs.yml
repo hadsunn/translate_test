@@ -1,12 +1,19 @@
-site_name: Basic MkDocs Example Project
+site_name: Документация Postgres
+nav:
+  - Home: index.md
+  - amcheck: amcheck.md
+  - Preface: preface.md
+  - Tutorial: tutorial.md
+  - The SQL Language: sql.md
+  - Server Administration: admin.md
+  - Client Interfaces: client-interfaces.md
+  - Server Programming: server-programming.md
+  - Reference: reference.md
+  - Internals: internals.md
+  - Appendixes: appendixes.md
+  - Index: bookindex.md
 theme:
-  name: readthedocs
-  highlightjs: true
-plugins:
-  - search
-  - mkdocstrings:
-      handlers:
-        # See: https://mkdocstrings.github.io/python/usage/
-        python:
-          options:
-            docstring_style: sphinx
+  name: material
+  palette:
+    scheme: slate
+    primary: indigo

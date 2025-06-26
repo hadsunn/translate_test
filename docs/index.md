@@ -1,7 +1,5 @@
 PostgreSQL: Documentation: 16: PostgreSQL 16.9 Documentation                
 
-[![PostgreSQL Elephant Logo](media/img/about/press/elephant.png)](/)
-
 *   [Home](/ "Home")
 *   [About](/about/ "About")
 *   [Download](/download/ "Download")

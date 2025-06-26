@@ -1,4 +1,5 @@
 site_name: Документация Postgres
+site_url: !ENV READTHEDOCS_CANONICAL_URL
 nav:
   - Home: index.md
   - amcheck: amcheck.md

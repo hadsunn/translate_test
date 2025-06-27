@@ -1,33 +1,33 @@
 [Documentation](/docs/ "Documentation") -> [PostgreSQL
-16](/docs/16/index.html)
+16](index.md)
 
-Supported Versions: [Current](/docs/current/amcheck.html "PostgreSQL 17 -
+Supported Versions: [Current](/docs/current/amcheck.md "PostgreSQL 17 -
 F.2. amcheck — tools to verify table and index consistency")
-([17](/docs/17/amcheck.html "PostgreSQL 17 - F.2. amcheck — tools to verify
-table and index consistency")) / [16](/docs/16/amcheck.html "PostgreSQL 16 -
+([17](/docs/17/amcheck.md "PostgreSQL 17 - F.2. amcheck — tools to verify
+table and index consistency")) / [16](/docs/16/amcheck.md "PostgreSQL 16 -
 F.2. amcheck — tools to verify table and index consistency") /
-[15](/docs/15/amcheck.html "PostgreSQL 15 - F.2. amcheck — tools to verify
-table and index consistency") / [14](/docs/14/amcheck.html "PostgreSQL 14 -
+[15](/docs/15/amcheck.md "PostgreSQL 15 - F.2. amcheck — tools to verify
+table and index consistency") / [14](/docs/14/amcheck.md "PostgreSQL 14 -
 F.2. amcheck — tools to verify table and index consistency") /
-[13](/docs/13/amcheck.html "PostgreSQL 13 - F.2. amcheck — tools to verify
+[13](/docs/13/amcheck.md "PostgreSQL 13 - F.2. amcheck — tools to verify
 table and index consistency")
 
-Development Versions: [18](/docs/18/amcheck.html "PostgreSQL 18 - F.2. amcheck
+Development Versions: [18](/docs/18/amcheck.md "PostgreSQL 18 - F.2. amcheck
 — tools to verify table and index consistency") /
-[devel](/docs/devel/amcheck.html "PostgreSQL devel - F.2. amcheck — tools to
+[devel](/docs/devel/amcheck.md "PostgreSQL devel - F.2. amcheck — tools to
 verify table and index consistency")
 
-Unsupported versions: [12](/docs/12/amcheck.html "PostgreSQL 12 - F.2. amcheck
-— tools to verify table and index consistency") / [11](/docs/11/amcheck.html
+Unsupported versions: [12](/docs/12/amcheck.md "PostgreSQL 12 - F.2. amcheck
+— tools to verify table and index consistency") / [11](/docs/11/amcheck.md
 "PostgreSQL 11 - F.2. amcheck — tools to verify table and index consistency")
-/ [10](/docs/10/amcheck.html "PostgreSQL 10 - F.2. amcheck — tools to verify
+/ [10](/docs/10/amcheck.md "PostgreSQL 10 - F.2. amcheck — tools to verify
 table and index consistency")
 
 __
 
 F.2. amcheck — tools to verify table and index consistency  
 ---  
-[Prev](adminpack.html "F.1. adminpack — pgAdmin support toolpack")  | [Up](contrib.html "Appendix F. Additional Supplied Modules and Extensions") | Appendix F. Additional Supplied Modules and Extensions | [Home](index.html "PostgreSQL 16.9 Documentation") |  [Next](auth-delay.html "F.3. auth_delay — pause on authentication failure")  
+[Prev](adminpack.md "F.1. adminpack — pgAdmin support toolpack")  | [Up](contrib.md "Appendix F. Additional Supplied Modules and Extensions") | Appendix F. Additional Supplied Modules and Extensions | [Home](index.md "PostgreSQL 16.9 Documentation") |  [Next](auth-delay.md "F.3. auth_delay — pause on authentication failure")  
   
 * * *
 
@@ -35,13 +35,13 @@ F.2. amcheck — tools to verify table and index consistency
 
 [F.2.1. Functions](amcheck.md#AMCHECK-FUNCTIONS)
 
-[F.2.2. Optional _`heapallindexed`_ Verification](amcheck.html#AMCHECK-
+[F.2.2. Optional _`heapallindexed`_ Verification](amcheck.md#AMCHECK-
 OPTIONAL-HEAPALLINDEXED-VERIFICATION)
 
-[F.2.3. Using `amcheck` Effectively](amcheck.html#AMCHECK-USING-AMCHECK-
+[F.2.3. Using `amcheck` Effectively](amcheck.md#AMCHECK-USING-AMCHECK-
 EFFECTIVELY)
 
-[F.2.4. Repairing Corruption](amcheck.html#AMCHECK-REPAIRING-CORRUPTION)
+[F.2.4. Repairing Corruption](amcheck.md#AMCHECK-REPAIRING-CORRUPTION)
 
 The `amcheck` module provides functions that allow you to verify the logical
 consistency of the structure of relations.
@@ -60,7 +60,7 @@ is raised.
 Verification is performed using the same procedures as those used by index
 scans themselves, which may be user-defined operator class code. For example,
 B-Tree index verification relies on comparisons made with one or more B-Tree
-support function 1 routines. See [Section 38.16.3](xindex.html#XINDEX-SUPPORT
+support function 1 routines. See [Section 38.16.3](xindex.md#XINDEX-SUPPORT
 "38.16.3. Index Method Support Routines") for details of operator class
 support functions.
 
@@ -312,7 +312,7 @@ to be detected with each new verification attempt.
 ### F.2.3. Using `amcheck` Effectively #
 
 `amcheck` can be effective at detecting various types of failure modes that
-[data checksums](app-initdb.html#APP-INITDB-DATA-CHECKSUMS) will fail to
+[data checksums](app-initdb.md#APP-INITDB-DATA-CHECKSUMS) will fail to
 catch. These include:
 
   * Structural inconsistencies caused by incorrect operator class implementations.
@@ -331,8 +331,8 @@ detected on standby servers.
 If a problem like this arises, it may not affect each individual index that is
 ordered using an affected collation, simply because _indexed_ values might
 happen to have the same absolute ordering regardless of the behavioral
-inconsistency. See [Section 24.1](locale.html "24.1. Locale Support") and
-[Section 24.2](collation.html "24.2. Collation Support") for further details
+inconsistency. See [Section 24.1](locale.md "24.1. Locale Support") and
+[Section 24.2](collation.md "24.2. Collation Support") for further details
 about how PostgreSQL uses operating system locales and collations.
 
   * Structural inconsistencies between indexes and the heap relations that are indexed (when _`heapallindexed`_ verification is performed).
@@ -348,7 +348,7 @@ plausibly allow a logical inconsistency to be introduced. Verification of
 table structure and associated visibility and transaction status information
 plays a similar role. One obvious testing strategy is to call `amcheck`
 functions continuously when running the standard regression tests. See
-[Section 33.1](regress-run.html "33.1. Running the Tests") for details on
+[Section 33.1](regress-run.md "33.1. Running the Tests") for details on
 running the tests.
 
   * File system or storage subsystem faults where checksums happen to simply not be enabled.
@@ -374,7 +374,7 @@ equality is tested, and the indexed attributes within the heap are tested.
 
 Structural corruption can happen due to faulty storage hardware, or relation
 files being overwritten or modified by unrelated software. This kind of
-corruption can also be detected with [data page checksums](checksums.html
+corruption can also be detected with [data page checksums](checksums.md
 "30.2. Data Checksums").
 
 Relation pages which are correctly formatted, internally consistent, and
@@ -394,7 +394,7 @@ precisely the same environments where high risk activities are least welcome.
 For this reason, `verify_heapam` has been designed to diagnose corruption
 without undue risk. It cannot guard against all causes of backend crashes, as
 even executing the calling query could be unsafe on a badly corrupted system.
-Access to [catalog tables](catalogs-overview.html "53.1. Overview") is
+Access to [catalog tables](catalogs-overview.md "53.1. Overview") is
 performed and could be problematic if the catalogs themselves are corrupted.
 
 In general, `amcheck` can only prove the presence of corruption; it cannot
@@ -409,21 +409,21 @@ is often required.
 
 There is no general method of repairing problems that `amcheck` detects. An
 explanation for the root cause of an invariant violation should be sought.
-[pageinspect](pageinspect.html "F.25. pageinspect — low-level inspection of
+[pageinspect](pageinspect.md "F.25. pageinspect — low-level inspection of
 database pages") may play a useful role in diagnosing corruption that
 `amcheck` detects. A `REINDEX` may not be effective in repairing corruption.
 
 * * *
 
-[Prev](adminpack.html "F.1. adminpack — pgAdmin support toolpack")  | [Up](contrib.html "Appendix F. Additional Supplied Modules and Extensions") |  [Next](auth-delay.html "F.3. auth_delay — pause on authentication failure")  
+[Prev](adminpack.md "F.1. adminpack — pgAdmin support toolpack")  | [Up](contrib.md "Appendix F. Additional Supplied Modules and Extensions") |  [Next](auth-delay.md "F.3. auth_delay — pause on authentication failure")  
 ---|---|---  
-F.1. adminpack — pgAdmin support toolpack  | [Home](index.html "PostgreSQL 16.9 Documentation") |  F.3. auth_delay — pause on authentication failure  
+F.1. adminpack — pgAdmin support toolpack  | [Home](index.md "PostgreSQL 16.9 Documentation") |  F.3. auth_delay — pause on authentication failure  
   
 ## Submit correction
 
 If you see anything in the documentation that is not correct, does not match
 your experience with the particular feature or requires further clarification,
-please use [this form](/account/comments/new/16/amcheck.html/) to report a
+please use [this form](/account/comments/new/16/amcheck.md/) to report a
 documentation issue.
 
 [Privacy Policy](/about/privacypolicy) | [Code of Conduct](/about/policies/coc/) | [About PostgreSQL](/about/) | [Contact](/about/contact/)  
